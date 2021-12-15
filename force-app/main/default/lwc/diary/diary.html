@@ -1,0 +1,55 @@
+<template>
+    <div class="slds-color__background_gray-1 slds-color__border_gray-12">
+        Account Record Id : {recordId}
+    </div>
+    
+        <lightning-card title="" icon-name="custom:custom63">
+            <div class="slds-m-around_medium">
+                <template if:true={Diary.data}>
+                    <template for:each={Diary.data} for:item="acc">
+                        <p key={acc.Id}>{acc.Name}</p>
+                        <p key={acc.Id}>{acc.CreatedDate}</p>
+                        <p key={acc.Id}>{acc.Note__c}</p>
+                        <lightning-button key={acc.Id} data-id={acc.Id}   label="Delete"  onclick={DeleteNote}></lightning-button> 
+                    </template>
+                </template>
+                   <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Type diary note "      onchange={saveNote}  ></lightning-input>
+            <lightning-button label="Create Note"  onclick={createNote}    >Add</lightning-button>    
+        </div>
+                <template if:true={Diary.error}>
+                    {Diary.error}
+                </template>
+            </div>
+        </lightning-card>
+     
+    <!-- <template iterator:d={Diary}>
+        <p key={d} style="display:inline">
+            <lightning-badge label={d} class="slds-badge_inverse">{d}</lightning-badge>
+        </p>
+    </template>
+      <template if:true={Diary}>
+                
+       <template for:each={Diary} for:item="Da">
+        <p key={Da}  data-id={Da}    >{Da}  </p>
+               <p key={Da.Id}  data-id={Da.Id}    >{Da} </p>
+                
+               <p key={Da.Id}  data-id={Da.Id}    >{Da}{Da.CreatedDate}</p>
+               <p key={Da.Id}  data-id={Da.Id}    >{Da}{Da.Note__c}</p>
+               <lightning-button key={Da.Id} data-id={Da.Id} label="Delete"  onclick={DeleteNote}></lightning-button> 
+         
+           
+        
+                    
+             
+           </template>     
+           <lightning-button   label="Add new contact"  onclick={handlethisclick}>Add Contact</lightning-button>   
+              </template>   -->
+           <!-- <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Type diary note "      onchange={saveNote}  ></lightning-input>
+            <lightning-button label="Create Note"  onclick={createNote}    >Add</lightning-button>    
+        </div> -->
+     
+</template>
+
+ 
